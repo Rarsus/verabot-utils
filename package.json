@@ -1,5 +1,5 @@
 {
-  "name": "verabot-utils",
+  "name": "@verabot/utils",
   "version": "1.0.0",
   "description": "Shared utilities and services library for Verabot - Database, logging, validation, and common helpers",
   "main": "src/index.js",
