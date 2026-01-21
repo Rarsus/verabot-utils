@@ -67,6 +67,10 @@ module.exports = {
   // Thresholds set at 25% to allow tested code to be measurable while
   // excluding untested services from collection
   // Long-term: Add tests for core services and raise thresholds to 80%+
+  coverageDirectory: 'coverage',
+  coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
+  collectCoverage: process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true',
+
   coverageThreshold: {
     global: {
       branches: 15,      // Realistic baseline: 16.4% actual coverage
