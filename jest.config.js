@@ -16,6 +16,13 @@ module.exports = {
   // Must use path segments that match filesystem paths
   testPathIgnorePatterns: ['/node_modules/', '/dashboard/', '/coverage/', 'tests/_archive', 'test-security-integration'],
 
+  // Module name mapping for cross-module imports
+  moduleNameMapper: {
+    '^verabot-utils/(.*)$': '<rootDir>/src/$1',
+    '^verabot-core/(.*)$': '<rootDir>/../verabot-core/src/$1',
+    '^verabot-commands/(.*)$': '<rootDir>/../verabot-commands/src/$1',
+  },
+
   // Test reporters - output JUnit XML for GitHub Actions
   reporters: [
     'default',
