@@ -46,13 +46,16 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^17.2.3",
-    "sqlite3": "^5.1.7",
     "pg": "^8.11.2",
+    "sqlite3": "^5.1.7",
     "winston": "^3.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
     "@types/jest": "^29.5.0",
     "@types/pg": "^8.10.7",
+    "babel-jest": "^30.2.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
