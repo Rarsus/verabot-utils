@@ -24,6 +24,26 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
+        with:
+          path: .
+
+      - name: 📥 Checkout parent repo for dependencies
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          path: parent-repo
+          sparse-checkout: |
+            repos/verabot-core
+            repos/verabot-dashboard
+            repos/verabot-commands
+
+      - name: 🔗 Link sibling modules
+        run: |
+          # Copy sibling modules to the expected location
+          mkdir -p ../verabot-core ../verabot-dashboard ../verabot-commands
+          cp -r parent-repo/repos/verabot-core/* ../verabot-core/ 2>/dev/null || true
+          cp -r parent-repo/repos/verabot-dashboard/* ../verabot-dashboard/ 2>/dev/null || true
+          cp -r parent-repo/repos/verabot-commands/* ../verabot-commands/ 2>/dev/null || true
 
       - name: 📦 Setup Node.js 20.x
         uses: actions/setup-node@v4
